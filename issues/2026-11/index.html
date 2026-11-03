@@ -166,6 +166,18 @@ footer{padding:22px 48px;font-size:.8rem;color:var(--gray);display:flex;flex-wra
   .award,.team{padding:16px}
 }
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* photos */
+.photo{margin:22px 0 6px}
+.photo img,.photo-row img{width:100%;height:auto;display:block;border-radius:6px;background:var(--mist)}
+.photo figcaption,.photo-row figcaption{font-size:13px;color:#5A6472;margin-top:7px;line-height:1.5}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 6px}
+.photo-row figure{margin:0}
+.photo-row.posters{gap:16px;margin:4px 0 22px}
+.photo-row.posters img{border:1px solid var(--sea-line)}
+.tl .tl-photo{margin:10px 0 0;max-width:420px}
+.tl .tl-photo img{width:100%;display:block;border-radius:6px}
+@media (max-width:680px){.photo-row{grid-template-columns:1fr}.photo-row.posters{grid-template-columns:1fr 1fr;gap:10px}}
 </style>
 </head>
 <body>
@@ -210,6 +222,8 @@ footer{padding:22px 48px;font-size:.8rem;color:var(--gray);display:flex;flex-wra
   <div class="body">
     <p class="lead">과제는 <strong>현직 교사 200명의 설문 응답</strong>에서 뽑았습니다. 전국 34팀이 지원했고, 13개 대학 20팀(40명)이 10월 30~31일 제주에서 1박 2일 동안 4차시 이상 수업지도안을 완성했습니다. 제주대는 <strong>최우수상과 우수상</strong>을 받았습니다.</p>
 
+    <figure class="photo"><img src="img/hack_group.jpg" alt="AI-EDU Next Class 해커톤 참가자 단체 사진" loading="lazy"><figcaption>10월 31일 시상식 후 본선 참가자 단체 사진 (호텔 리젠트마린 제주)</figcaption></figure>
+
     <span class="sub-h">이렇게 진행했습니다</span>
     <ol class="steps">
       <li><b>현장 과제 수집</b>교사 설문의 서술형 응답을 분류해 과제로 정리</li>
@@ -218,6 +232,10 @@ footer{padding:22px 48px;font-size:.8rem;color:var(--gray);display:flex;flex-wra
       <li><b>본선 개발</b>4차시 이상 수업지도안 작성, 과제별 전문가 멘토링<br>10. 30.</li>
       <li><b>발표·심사</b>현장 교사·교수·산업체 심사위원 5명 평가<br>10. 31.</li>
     </ol>
+    <div class="photo-row">
+      <figure><img src="img/hack_work.jpg" alt="해커톤 본선 수업지도안 개발 모습" loading="lazy"><figcaption>본선 수업지도안 개발</figcaption></figure>
+      <figure><img src="img/hack_mentor.jpg" alt="해커톤 과제별 전문가 멘토링" loading="lazy"><figcaption>과제별 전문가 멘토링</figcaption></figure>
+    </div>
 
     <span class="sub-h">과제</span>
     <ul class="task-list">
@@ -284,6 +302,10 @@ footer{padding:22px 48px;font-size:.8rem;color:var(--gray);display:flex;flex-wra
   </div>
   <div class="body">
     <p class="lead">사범대학 학생 10팀이 약 6주 동안 <strong>두 개 이상 전공이 한 팀</strong>을 이뤄 중·고등학생용 AI 융합 수업을 설계했습니다. 10월 30일 최종 발표회에서 외부 심사위원 4명의 평가로 <strong>우수팀 6팀</strong>을 선정했습니다.</p>
+    <div class="photo-row">
+      <figure><img src="img/res_present.jpg" alt="AI-EDU 연구반 최종 발표회 전경" loading="lazy"><figcaption>10월 30일 연구반 최종 발표회</figcaption></figure>
+      <figure><img src="img/res_hall.jpg" alt="연구반 팀 발표를 듣는 참가자들" loading="lazy"><figcaption>팀별 발표와 심사위원 피드백</figcaption></figure>
+    </div>
     <span class="sub-h">이렇게 진행했습니다</span>
     <ol class="steps">
       <li><b>팀 구성</b>2개 이상 전공이 섞인 2~4인 팀이 주교과를 정해 신청</li>
@@ -417,11 +439,16 @@ footer{padding:22px 48px;font-size:.8rem;color:var(--gray);display:flex;flex-wra
   </div>
   <div class="body">
     <p class="panel">AI Insight 특강은 <strong>사범대학 2호관 2232호, 14:00~16:00</strong>, 회차별 선착순 40명이며 <a href="https://aiedu.iline.or.kr">오픈라이브러리</a>에서 특강 전날까지 신청합니다.</p>
+    <div class="photo-row posters">
+      <figure><a href="https://aiedu.iline.or.kr/apply/insight2"><img src="img/poster2.jpg" alt="AI Insight 특강 2회 포스터: 생성형 AI, 교사는 어떻게 활용할까? 11월 5일" loading="lazy"></a><figcaption>2회 · 11. 5.(목) 휴몬랩</figcaption></figure>
+      <figure><a href="https://aiedu.iline.or.kr/apply/insight3"><img src="img/poster3.jpg" alt="AI Insight 특강 3회 포스터 11월 19일" loading="lazy"></a><figcaption>3회 · 11. 19.(목) 캐치잇플레이</figcaption></figure>
+    </div>
     <ol class="tl">
       <li class="past">
         <div class="d">10. 29.(목)</div>
         <h3>AI Insight 특강 1회 <span class="tag done">종료</span></h3>
         <p>「산업 및 에듀테크 발전에 따른 학교 현장 변화」 네패스 임재승 선임연구원. Agentic AI의 개념과 학교 적용, AI에 작업을 맡길 때의 효율과 위험을 다뤘습니다.</p>
+        <figure class="tl-photo"><img src="img/insight1.jpg" alt="AI Insight 특강 1회 강연 모습" loading="lazy"></figure>
       </li>
       <li class="past">
         <div class="d">10. 30.(금) ~ 31.(토)</div>
