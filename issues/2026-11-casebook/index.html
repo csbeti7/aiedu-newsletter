@@ -11,6 +11,8 @@
 <style>:root{color-scheme:light} body{margin:0} img{max-width:100%}</style>
 <style>
 /* Layout: 발간 사례집 — 장(章) 번호가 붙은 단일 칼럼(720px), 도표·사진은 넓게(1000px) */
+@font-face { font-family: "NanumBarunGothicWeb"; src: url("fonts/barun-r.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "NanumBarunGothicWeb"; src: url("fonts/barun-b.woff") format("woff"); font-weight: 700 800; font-display: swap; }
 :root {
   --paper: #FAFAF7;
   --ink: #22292B;
@@ -21,7 +23,7 @@
   --sea-soft: #CFE0DE;
   --tangerine: #B95C1C;
   --display: "Nanum Myeongjo", "NanumMyeongjo", serif;
-  --body: "Nanum Gothic", "NanumGothic", "Malgun Gothic", sans-serif;
+  --body: "NanumBarunGothicWeb", "NanumBarunGothic", "Nanum Gothic", "Malgun Gothic", sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --paper: #161B1D; --ink: #E7EAE6; --ink-2: #A9B3B1; --rule: #333D40; --tint: #1F2729; --sea: #82BCBC; --sea-soft: #2A4446; --tangerine: #EE975E; color-scheme: dark } }
@@ -160,6 +162,7 @@ blockquote { margin: 0; padding: 18px 0 18px 22px; border-left: 3px solid var(--
 .share h4 { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
 .share p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
 
+footer .contact { display: block; margin-top: 4px; color: var(--ink); }
 footer { max-width: 1000px; margin: 96px auto 0; border-top: 1px solid var(--ink); padding-block: 20px 44px; font-size: 13.5px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px 28px; justify-content: space-between; }
 
 @media (max-width: 760px) {
@@ -384,6 +387,6 @@ footer { max-width: 1000px; margin: 96px auto 0; border-top: 1px solid var(--ink
   </div>
 </section>
 
-<footer><span>『AI-EDU Next Class』 전국 예비교원 AI 융합 수업설계 해커톤 · 주최 한국과학창의재단 · 주관 제주대학교</span><span>수업지도안 전체 보기 <a href="https://aiedu.iline.or.kr/gallery" target="_blank" rel="noopener">AI-EDU 오픈라이브러리</a></span></footer>
+<footer><div><span>『AI-EDU Next Class』 전국 예비교원 AI 융합 수업설계 해커톤 · 주최 한국과학창의재단 · 주관 제주대학교</span><span class="contact">문의: <a href="mailto:ai_edu@jejunu.ac.kr">ai_edu@jejunu.ac.kr</a></span></div><span>수업지도안 전체 보기 <a href="https://aiedu.iline.or.kr/gallery" target="_blank" rel="noopener">AI-EDU 오픈라이브러리</a></span></footer>
 </body>
 </html>
