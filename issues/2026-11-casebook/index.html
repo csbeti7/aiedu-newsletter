@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI-EDU Next Class 사례집</title>
+<meta name="description" content="전국 예비교원 AI 융합 수업설계 해커톤 AI-EDU Next Class 사례집">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@700;800&display=swap">
+<style>:root{color-scheme:light} body{margin:0} img{max-width:100%}</style>
+<style>
+/* Layout: 발간 사례집 — 장(章) 번호가 붙은 단일 칼럼(720px), 도표·사진은 넓게(1000px) */
+:root {
+  --paper: #FAFAF7;
+  --ink: #22292B;
+  --ink-2: #566164;
+  --rule: #DCDFDA;
+  --tint: #EEF2EF;
+  --sea: #2C6A6E;
+  --sea-soft: #CFE0DE;
+  --tangerine: #B95C1C;
+  --display: "Nanum Myeongjo", "NanumMyeongjo", serif;
+  --body: "Nanum Gothic", "NanumGothic", "Malgun Gothic", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #161B1D; --ink: #E7EAE6; --ink-2: #A9B3B1; --rule: #333D40; --tint: #1F2729; --sea: #82BCBC; --sea-soft: #2A4446; --tangerine: #EE975E; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #161B1D; --ink: #E7EAE6; --ink-2: #A9B3B1; --rule: #333D40; --tint: #1F2729; --sea: #82BCBC; --sea-soft: #2A4446; --tangerine: #EE975E; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16.5px; line-height: 1.75; word-break: keep-all; overflow-wrap: break-word;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+p { margin: 0; }
+p + p { margin-top: .85em; }
+a { color: var(--sea); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--tangerine); outline-offset: 2px; }
+.col { max-width: 720px; margin-inline: auto; }
+.wide { max-width: 1000px; margin-inline: auto; }
+
+.mast { max-width: 1000px; margin: 0 auto; padding-block: 26px 14px; border-bottom: 1px solid var(--ink); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); }
+
+.cover { padding-top: 56px; }
+.cover .eyebrow { font-size: 14px; color: var(--tangerine); font-weight: 700; letter-spacing: .04em; }
+.cover h1 { font-family: var(--display); font-weight: 800; font-size: clamp(36px, 6.4vw, 60px); line-height: 1.2; margin: 12px 0 18px; letter-spacing: -.01em; }
+.cover .sub { font-size: 19px; color: var(--ink-2); line-height: 1.65; }
+.hero { margin: 40px auto 0; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; border-bottom: 1px solid var(--rule); }
+.stats div { padding: 20px 16px 20px 0; }
+.stats div + div { padding-left: 16px; border-left: 1px solid var(--rule); }
+.stats b { display: block; font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1.15; color: var(--sea); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 14px; color: var(--ink-2); }
+
+figure { margin: 0; min-width: 0; }
+figure img { width: 100%; display: block; aspect-ratio: 3 / 2; object-fit: cover; }
+.hero img { aspect-ratio: 2 / 1; object-position: center 40%; }
+figcaption { font-size: 13.5px; line-height: 1.55; color: var(--ink-2); margin-top: 8px; }
+
+.toc { margin-top: 44px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; }
+.toc a { display: flex; gap: 12px; align-items: baseline; padding-block: 10px; border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none; font-size: 15px; }
+.toc a:hover { color: var(--sea); }
+.toc a span { font-family: var(--display); font-weight: 800; color: var(--tangerine); font-size: 15px; min-width: 22px; }
+
+section { padding-top: 88px; }
+.chap { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+.chap .no { font-family: var(--display); font-weight: 800; font-size: 15px; color: var(--tangerine); }
+.chap .name { font-size: 13px; color: var(--ink-2); letter-spacing: .08em; }
+h2 { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3.6vw, 33px); line-height: 1.38; margin: 0 0 20px; }
+h3.h { font-size: 18px; font-weight: 700; margin: 40px 0 12px; }
+
+/* overview table */
+.overview { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 15.5px; line-height: 1.6; }
+.overview th, .overview td { text-align: left; vertical-align: top; padding: 11px 0; border-top: 1px solid var(--rule); }
+.overview tr:last-child th, .overview tr:last-child td { border-bottom: 1px solid var(--rule); }
+.overview th { width: 110px; font-weight: 700; color: var(--sea); }
+
+/* survey */
+.survey-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: var(--ink-2); margin: 20px 0 0; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.chart { margin-top: 28px; }
+.chart h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+.chart .note { font-size: 13.5px; color: var(--ink-2); margin-bottom: 14px; }
+.bar { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr) 4.2em; gap: 12px; align-items: center; padding-block: 7px; font-size: 14.5px; line-height: 1.45; }
+.bar .rail { display: block; height: 14px; background: var(--tint); }
+.bar .fill { height: 100%; background: var(--sea-soft); }
+.bar.pick .fill { background: var(--sea); }
+.bar.pick .lab { font-weight: 700; }
+.bar .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-top: 10px; }
+.legend i { display: inline-block; width: 12px; height: 12px; vertical-align: -1px; margin-right: 6px; }
+
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+.duo div { background: var(--tint); padding: 18px 20px; }
+.duo b { display: block; font-family: var(--display); font-weight: 800; font-size: 30px; color: var(--sea); line-height: 1.2; font-variant-numeric: tabular-nums; }
+.duo span { font-size: 14.5px; color: var(--ink-2); line-height: 1.55; display: block; margin-top: 4px; }
+
+.tasks { margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.task { border-top: 2px solid var(--sea); padding-top: 14px; }
+.task .code { font-size: 13px; font-weight: 700; color: var(--tangerine); }
+.task h4 { font-size: 17px; font-weight: 700; margin: 2px 0 6px; line-height: 1.45; }
+.task p { font-size: 15px; color: var(--ink-2); line-height: 1.65; }
+
+/* process timeline */
+.flow { list-style: none; padding: 0; margin-top: 28px; margin-bottom: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; position: relative; }
+.flow li { padding: 0 12px 0 0; position: relative; }
+.flow li::before { content: ""; display: block; height: 3px; background: var(--sea); margin-bottom: 14px; }
+.flow li::after { content: ""; position: absolute; top: -4px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--paper); border: 3px solid var(--sea); }
+.flow .when { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.flow .what { font-weight: 700; font-size: 16px; margin: 2px 0 4px; }
+.flow p { font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+
+.unis { margin-top: 18px; font-size: 15px; color: var(--ink-2); }
+
+.pics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-block: 32px; }
+.pics.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.sched { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 28px; }
+.sched h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; color: var(--sea); }
+.sched table { border-collapse: collapse; width: 100%; font-size: 14.5px; line-height: 1.5; }
+.sched td { padding: 7px 0; border-top: 1px solid var(--rule); vertical-align: top; }
+.sched tr:last-child td { border-bottom: 1px solid var(--rule); }
+.sched td:first-child { width: 96px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+
+/* awards */
+.awards { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 15px; line-height: 1.55; }
+.awards th, .awards td { text-align: left; padding: 10px 10px 10px 0; border-top: 1px solid var(--rule); vertical-align: top; }
+.awards thead th { font-size: 13px; color: var(--ink-2); font-weight: 700; border-top: 1px solid var(--ink); }
+.awards tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+.awards td.prize { color: var(--tangerine); font-weight: 700; white-space: nowrap; }
+.awards td.team a { color: var(--ink); font-weight: 700; text-decoration: none; }
+.awards td.team a:hover { color: var(--sea); text-decoration: underline; }
+.tblwrap { overflow-x: auto; }
+.tblwrap table { min-width: 560px; }
+
+/* cases */
+.cases { margin-top: 32px; }
+.case { padding-block: 28px; border-top: 1px solid var(--rule); }
+.case:first-child { border-top: 1px solid var(--ink); }
+.case .tag { font-size: 13px; font-weight: 700; color: var(--tangerine); }
+.case h3 { font-family: var(--display); font-weight: 800; font-size: 23px; line-height: 1.4; margin: 4px 0 2px; }
+.case h3 a, .more h4 a { color: var(--ink); text-decoration: none; }
+.case h3 a:hover, .more h4 a:hover { color: var(--sea); text-decoration: underline; }
+.case .who { font-size: 14px; color: var(--ink-2); margin: 0 0 12px; }
+.case .who + p { margin-top: 0; }
+.case .go { margin-top: 12px; font-size: 14.5px; font-weight: 700; }
+.case .go a::after { content: " →"; }
+.track { font-size: 15px; font-weight: 700; color: var(--sea); margin: 44px 0 0; padding-bottom: 8px; border-bottom: 1px solid var(--ink); }
+.more { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; }
+.more article { padding-block: 16px; border-bottom: 1px solid var(--rule); min-width: 0; }
+.more .meta { font-size: 13px; color: var(--ink-2); }
+.more h4 { font-size: 16.5px; font-weight: 700; margin: 2px 0 4px; line-height: 1.45; }
+.more h4 + p { margin-top: 0; }
+.more article p:last-child { font-size: 15px; color: var(--ink-2); line-height: 1.65; }
+
+blockquote { margin: 0; padding: 18px 0 18px 22px; border-left: 3px solid var(--tangerine); font-family: var(--display); font-weight: 700; font-size: 19px; line-height: 1.6; }
+.quotes { display: grid; gap: 16px; margin-top: 28px; }
+.quotes cite { display: block; font-family: var(--body); font-style: normal; font-weight: 400; font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+
+.share { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.share div { border-top: 2px solid var(--sea); padding-top: 12px; }
+.share h4 { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
+.share p { font-size: 14.5px; color: var(--ink-2); line-height: 1.6; }
+
+footer { max-width: 1000px; margin: 96px auto 0; border-top: 1px solid var(--ink); padding-block: 20px 44px; font-size: 13.5px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px 28px; justify-content: space-between; }
+
+@media (max-width: 760px) {
+  .flow { grid-template-columns: 1fr; gap: 0; }
+  .flow li { padding: 0 0 18px 26px; }
+  .flow li::before { position: absolute; left: 4px; top: 8px; bottom: 0; width: 3px; height: auto; margin: 0; }
+  .flow li::after { top: 4px; }
+  .toc { grid-template-columns: 1fr 1fr; }
+  .share { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .pics, .pics.three, .sched, .more, .tasks, .duo { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats div, .stats div + div { padding: 14px 10px 14px 0; border-left: none; border-top: 1px solid var(--rule); }
+  .stats div:nth-child(-n+2) { border-top: none; }
+  .hero img { aspect-ratio: 3 / 2; }
+  .bar { grid-template-columns: minmax(0, 1fr) 3.6em; gap: 4px 10px; }
+  .bar .lab { grid-column: 1 / -1; } .bar .rail { grid-column: 1; }
+  section { padding-top: 64px; }
+  .toc { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<header class="mast"><span>2026 교원양성기관 교육과정 개발 지원사업 · 제주대학교</span><span>사례집 · 2026. 11.</span></header>
+
+<div class="cover">
+  <div class="col">
+    <div class="eyebrow">전국 예비교원 AI 융합 수업설계 해커톤</div>
+    <h1>AI-EDU Next Class<br>사례집</h1>
+    <p class="sub">현장 교사 200명이 꼽은 교실의 문제에서 출발해, 전국 13개 대학 예비교원 40명이 1박 2일 동안 AI 융합 수업 20편을 설계했습니다.</p>
+  </div>
+  <figure class="hero wide"><img src="img/group.jpg" alt="AI-EDU Next Class 본선 참가자와 운영진 단체 사진"><figcaption>2026. 10. 31. 제주 리젠트마린 호텔, 본선 시상식을 마치고</figcaption></figure>
+  <div class="stats wide">
+    <div><b>200명</b><span>과제 도출 교사 설문</span></div>
+    <div><b>34팀 68명</b><span>참가 신청</span></div>
+    <div><b>20팀 40명</b><span>본선 진출 · 13개 대학</span></div>
+    <div><b>20편</b><span>4~6차시 수업지도안 공개</span></div>
+  </div>
+  <nav class="toc col" aria-label="차례">
+    <a href="#about"><span>01</span>사업 개요</a>
+    <a href="#survey"><span>02</span>현장 교사 설문</a>
+    <a href="#process"><span>03</span>추진 과정</a>
+    <a href="#finals"><span>04</span>본선 현장</a>
+    <a href="#awards"><span>05</span>수상 결과</a>
+    <a href="#cases"><span>06</span>수업 사례 20편</a>
+  </nav>
+</div>
+
+<section id="about">
+  <div class="col">
+    <div class="chap"><span class="no">01</span><span class="name">사업 개요</span></div>
+    <h2>예비교원이 AI 수업을 직접 설계해 보는 해커톤</h2>
+    <p>생성형 AI가 빠르게 교실로 들어오면서 교사에게는 AI를 쓸 줄 아는 능력뿐 아니라 어떤 학습을 위해 수업에 어떻게 활용할지 판단하는 능력도 필요해졌습니다. 『AI-EDU Next Class』는 예비교원이 이 고민을 교사가 되기 전에 직접 해 볼 수 있도록 마련한 수업설계 해커톤입니다.</p>
+    <p>과제는 현장 교사 설문에서 나온 실제 교실 문제로 정했고, 참가팀은 그 문제를 4차시 이상의 AI 융합 수업으로 풀어냈습니다.</p>
+    <table class="overview">
+      <tr><th>사업명</th><td>AI-EDU Next Class – 전국 예비교원 AI 융합 수업설계 해커톤</td></tr>
+      <tr><th>주최·주관</th><td>한국과학창의재단 / 제주대학교</td></tr>
+      <tr><th>운영 기간</th><td>2026. 9. 18.(금) ~ 10. 31.(토)</td></tr>
+      <tr><th>참가 대상</th><td>전국 사범대학 재학생 및 일반대학 교직이수과정 학생, 2인 1팀</td></tr>
+      <tr><th>운영 방식</th><td>예선(1차시 수업지도안 서면심사) → 본선(4차시 이상 수업지도안 개발·발표·심사) → 시상 및 결과 공유</td></tr>
+      <tr><th>본선</th><td>2026. 10. 30.(금) ~ 31.(토), 제주 리젠트마린 호텔(1박 2일)</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="survey">
+  <div class="col">
+    <div class="chap"><span class="no">02</span><span class="name">현장 교사 설문</span></div>
+    <h2>과제는 선생님들의 답에서 나왔습니다</h2>
+    <p>해커톤 과제를 정하기 전에 전국 중·고등학교 교사 200명에게 AI 융합교육에 대한 인식을 묻고, 마지막 문항에서 예비교원에게 맡기고 싶은 학교 현장의 문제를 직접 적어 달라고 요청했습니다.</p>
+    <div class="survey-meta"><span>조사 기간 2026. 8. 31. ~ 9. 11.</span><span>대상 전국 중·고등학교 교사 200명(중 126명, 고 74명)</span><span>방법 온라인 설문</span></div>
+
+    <div class="duo">
+      <div><b>88%</b><span>개인적으로 생성형 AI를 자주 사용한다고 답한 교사</span></div>
+      <div><b>4.28<small style="font-size:16px"> / 5</small></b><span>"학생들이 AI에 지나치게 의존할까 우려된다"에 대한 동의 정도</span></div>
+    </div>
+    <p style="margin-top:20px">교사들은 대체로 AI가 수업 준비와 업무에 유용하다고 답했지만, 학생의 AI 과의존을 크게 우려했습니다. 7개 인식 문항 가운데 가장 낮은 점수를 받은 것은 'AI 결과물의 정확성을 신뢰한다'(3.34점)였습니다.</p>
+  </div>
+
+  <div class="chart col">
+    <h3>예비교원에게 맡기고 싶은 학교 현장의 문제</h3>
+    <div class="note">서술형 응답 200건을 내용별로 분류한 결과(상위 7개 유형)</div>
+    <div class="bar pick"><span class="lab">AI 과의존·무비판적 수용</span><span class="rail"><span class="fill" style="display:block;width:100%"></span></span><span class="val">52건</span></div>
+    <div class="bar pick"><span class="lab">교과 연계 AI 융합수업 설계</span><span class="rail"><span class="fill" style="display:block;width:51.9%"></span></span><span class="val">27건</span></div>
+    <div class="bar pick"><span class="lab">데이터·도구·인프라 제약</span><span class="rail"><span class="fill" style="display:block;width:50%"></span></span><span class="val">26건</span></div>
+    <div class="bar"><span class="lab">AI 활용 수행평가·루브릭</span><span class="rail"><span class="fill" style="display:block;width:44.2%"></span></span><span class="val">23건</span></div>
+    <div class="bar"><span class="lab">수업자료·활동지 개발</span><span class="rail"><span class="fill" style="display:block;width:28.8%"></span></span><span class="val">15건</span></div>
+    <div class="bar pick"><span class="lab">학생 간 역량·수준 격차</span><span class="rail"><span class="fill" style="display:block;width:26.9%"></span></span><span class="val">14건</span></div>
+    <div class="bar"><span class="lab">행정업무·생활기록부 경감</span><span class="rail"><span class="fill" style="display:block;width:25%"></span></span><span class="val">13건</span></div>
+    <div class="legend"><span><i style="background:var(--sea)"></i>해커톤 과제로 채택</span><span><i style="background:var(--sea-soft)"></i>기타 유형</span></div>
+  </div>
+
+  <div class="col">
+    <h3 class="h">이렇게 네 개의 과제가 되었습니다</h3>
+    <p>설문에서 나온 문제 가운데 네 가지를 골라 두 개 트랙의 과제로 정했습니다. Track 1(Challenge)은 현장의 어려움을 해결하는 수업을, Track 2(Curriculum)는 교육과정과 연계한 수업을 설계하는 과제입니다.</p>
+    <div class="tasks">
+      <div class="task"><div class="code">Track 1 · T1-1</div><h4>AI 과의존 문제 해결</h4><p>학생이 AI의 답을 그대로 받아들이지 않고 검증과 비판을 거쳐 스스로 판단하는 수업</p></div>
+      <div class="task"><div class="code">Track 1 · T1-2</div><h4>제한된 환경에서의 AI 문제해결</h4><p>무료 도구와 학생 2인당 기기 1대를 활용해 인터넷 없이도 운영할 수 있는 수업</p></div>
+      <div class="task"><div class="code">Track 1 · T1-3</div><h4>학생 간 AI·학습 격차 해소</h4><p>AI 활용 수준과 학습 수준이 다른 학생들이 함께 참여하며 각자에게 맞는 지원을 받는 수업</p></div>
+      <div class="task"><div class="code">Track 2 · T2-1</div><h4>교과 연계 AI 융합수업 개발</h4><p>교과 성취기준과 AI를 자연스럽게 연결해 학생이 탐구하고 문제를 해결하는 수업</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="col">
+    <div class="chap"><span class="no">03</span><span class="name">추진 과정</span></div>
+    <h2>공고에서 결과 공유까지</h2>
+    <p>9월 중순 공고를 시작으로 예선과 본선을 거쳐, 11월에는 결과물을 정리해 학교 현장과 나누었습니다. 예선에서는 1차시 지도안으로 아이디어를 심사하고, 본선에서는 이를 다차시 수업으로 발전시키도록 했습니다.</p>
+  </div>
+  <ol class="flow wide">
+    <li><div class="when">9. 18. ~ 10. 6.</div><div class="what">참가 신청</div><p>전국 대학에 공문과 포스터로 안내, 34팀 68명 접수</p></li>
+    <li><div class="when">10. 8. ~ 10. 10.</div><div class="what">예선 심사</div><p>1차시 수업지도안 서면심사, 심사위원 5명</p></li>
+    <li><div class="when">10. 12.</div><div class="what">본선 진출 발표</div><p>13개 대학 20팀 40명 선정</p></li>
+    <li><div class="when">10. 30. ~ 31.</div><div class="what">본선 및 시상</div><p>1박 2일 수업지도안 개발, 멘토링, 발표·심사</p></li>
+    <li><div class="when">11월</div><div class="what">결과 공유</div><p>수업지도안 20편 공개, 교사 뉴스레터, 인터뷰 영상</p></li>
+  </ol>
+  <div class="col">
+    <p class="unis">본선 참가 대학(가나다순) — 경북대, 경상대, 계명대, 동국대, 부산대, 상명대, 서울대, 성균관대, 순천대, 이화여대, 전북대, 제주대, 한국외대</p>
+  </div>
+</section>
+
+<section id="finals">
+  <div class="col">
+    <div class="chap"><span class="no">04</span><span class="name">본선 현장</span></div>
+    <h2>제주에서의 1박 2일</h2>
+    <p>본선 첫날은 예선 1차시 지도안을 4차시 이상의 수업으로 확장하는 시간이었습니다. 개회식과 아이스브레이킹으로 다른 대학 참가자들과 인사를 나눈 뒤, 팀별로 수업 흐름을 짜기 시작했습니다.</p>
+  </div>
+  <div class="pics wide">
+    <figure><img src="img/open.jpg" alt="개회식 행사장 전경"><figcaption>개회식과 오리엔테이션</figcaption></figure>
+    <figure><img src="img/ice.jpg" alt="스파게티 면으로 탑을 쌓는 참가자들"><figcaption>아이스브레이킹, 스파게티 탑 쌓기</figcaption></figure>
+  </div>
+  <div class="col">
+    <p>오후에는 과제별 전문가 멘토링이 진행되었습니다. 서울교육대학교, 고려사이버대학교, 고려대학교 정보창의교육연구소, 호서대학교의 교수·연구자 네 명이 과제를 나눠 맡아 각 팀의 수업을 함께 살폈습니다. 참가팀은 밤 11시까지 멘토링 내용을 반영해 지도안과 발표 자료를 완성했습니다.</p>
+  </div>
+  <div class="pics three wide">
+    <figure><img src="img/team.jpg" alt="노트북으로 수업지도안을 작성하는 팀"><figcaption>팀별 수업지도안 개발</figcaption></figure>
+    <figure><img src="img/mentor.jpg" alt="멘토가 팀에게 피드백하는 모습"><figcaption>과제별 전문가 멘토링</figcaption></figure>
+    <figure><img src="img/panel.jpg" alt="멘토 소개 시간"><figcaption>멘토 소개</figcaption></figure>
+  </div>
+  <div class="col">
+    <p>둘째 날에는 20팀이 차례로 무대에 올라 수업을 발표했습니다. 심사는 현장 교사 2명, 교수 2명, 산업체 대표 1명이 맡아 교육적 효과, 현장 적용 가능성, 다차시 수업의 완성도, AI 활용의 교육적 타당성 등을 살폈습니다. 발표가 끝난 뒤에는 제주대학교 교수의 특강과 시상식이 이어졌습니다.</p>
+  </div>
+  <div class="pics wide">
+    <figure><img src="img/talk.jpg" alt="발표하는 참가자"><figcaption>팀별 발표</figcaption></figure>
+    <figure><img src="img/judge.jpg" alt="심사위원 소개 장면"><figcaption>심사위원 소개</figcaption></figure>
+  </div>
+  <div class="sched col">
+    <div><h3>1일차 · 10. 30.(금)</h3><table>
+      <tr><td>10:00~11:20</td><td>등록, 개회식</td></tr>
+      <tr><td>11:20~12:00</td><td>오리엔테이션</td></tr>
+      <tr><td>13:00~16:00</td><td>팀별 수업지도안 개발</td></tr>
+      <tr><td>16:00~18:00</td><td>과제별 전문가 멘토링</td></tr>
+      <tr><td>19:00~23:00</td><td>지도안·발표 자료 완성 및 제출</td></tr>
+    </table></div>
+    <div><h3>2일차 · 10. 31.(토)</h3><table>
+      <tr><td>08:00~10:00</td><td>팀별 리허설</td></tr>
+      <tr><td>10:00~12:00</td><td>발표 1부 (T1-1 9팀)</td></tr>
+      <tr><td>13:00~15:00</td><td>발표 2부 (T1-2·T1-3·T2-1 11팀)</td></tr>
+      <tr><td>15:10~16:00</td><td>특강, 만족도 조사</td></tr>
+      <tr><td>16:30~17:00</td><td>심사 총평, 시상식</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="col">
+    <div class="chap"><span class="no">05</span><span class="name">수상 결과</span></div>
+    <h2>8팀이 상을 받았습니다</h2>
+    <p>대상과 최우수상 3팀에는 한국과학창의재단 이사장상이, 우수상 5팀에는 제주대학교 사범대학장상이 수여되었습니다. 팀명을 누르면 수업지도안을 볼 수 있습니다.</p>
+    <div class="tblwrap"><table class="awards">
+      <thead><tr><th>구분</th><th>팀명</th><th>소속</th><th>과제</th></tr></thead>
+      <tbody>
+        <tr><td class="prize">대상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/qi0MpdAYist07dbSBd9N" target="_blank" rel="noopener">한교동</a></td><td>성균관대</td><td>AI 과의존 문제 해결</td></tr>
+        <tr><td class="prize">최우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/VlhWIXWFGhe7SHUPjfWu" target="_blank" rel="noopener">프롤로그</a></td><td>서울대·동국대</td><td>AI 과의존 문제 해결</td></tr>
+        <tr><td class="prize">최우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/ZDZ3uNC5aTqcqi2sEERy" target="_blank" rel="noopener">매스컴</a></td><td>제주대</td><td>교과 연계 AI 융합수업</td></tr>
+        <tr><td class="prize">우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/djY6W04dvYHl9r2I4qNu" target="_blank" rel="noopener">동물원김밥</a></td><td>성균관대</td><td>AI 과의존 문제 해결</td></tr>
+        <tr><td class="prize">우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/gO43OEIZxuYeI03kIeU5" target="_blank" rel="noopener">AIWA(아이와)</a></td><td>한국외대</td><td>AI 과의존 문제 해결</td></tr>
+        <tr><td class="prize">우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/CvpeI4MIxcKKTpgKxt7t" target="_blank" rel="noopener">A! Chem do ET</a></td><td>이화여대</td><td>AI 과의존 문제 해결</td></tr>
+        <tr><td class="prize">우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/h3mr74KmMjOszc9XQQht" target="_blank" rel="noopener">지숭이와 아이들</a></td><td>제주대</td><td>학생 간 AI·학습 격차 해소</td></tr>
+        <tr><td class="prize">우수상</td><td class="team"><a href="https://aiedu.iline.or.kr/gallery/zxAbbV2ncl9KE2PmB1Hy" target="_blank" rel="noopener">호반우</a></td><td>경북대</td><td>학생 간 AI·학습 격차 해소</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="pics wide">
+    <figure><img src="img/award.jpg" alt="대상 시상 장면"><figcaption>대상, 성균관대 한교동 팀</figcaption></figure>
+    <figure><img src="img/talk2.jpg" alt="본선 발표 장면"><figcaption>본선 발표</figcaption></figure>
+  </div>
+  <div class="col">
+    <h3 class="h">참가자들이 남긴 말</h3>
+    <p>행사 직후 본선 참가자 40명 전원이 만족도 조사에 응답했습니다. 'AI를 교육적으로 활용하는 수업을 설계하는 경험을 할 수 있었다'는 문항에 97.5%가, '프로그램에 전반적으로 만족한다'는 문항에 90%가 그렇다고 답했습니다.</p>
+    <div class="quotes">
+      <blockquote>멘토링을 통해 같은 문제를 완전히 새롭게 접근할 수 있었다.<cite>참가자 자유 응답</cite></blockquote>
+      <blockquote>교사가 되었다고 생각하고 어떻게 수업해야 학생들에게 의미 있을지 깊게 고민해 볼 수 있었다.<cite>참가자 자유 응답</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="col">
+    <div class="chap"><span class="no">06</span><span class="name">수업 사례</span></div>
+    <h2>수업지도안 20편</h2>
+    <p>본선 20팀의 수업지도안을 같은 서식으로 정리해 AI-EDU 오픈라이브러리에 공개했습니다. 수상작 8편은 수업의 흐름을 중심으로 소개하고, 나머지 12편은 과제별로 핵심 활동을 정리했습니다. 제목을 누르면 지도안 원문으로 이동합니다.</p>
+    <div class="cases">
+<article class="case"><p class="tag">대상</p><h3><a href="https://aiedu.iline.or.kr/gallery/qi0MpdAYist07dbSBd9N" target="_blank" rel="noopener">오디세이를 따라가는 기후변화 수업</a></h3><p class="who">한교동 · 성균관대 · 고1 통합사회1 · 6차시</p><p>학생들은 오디세우스처럼 섬을 옮겨 다니며 지역별 기후변화의 흔적을 찾고, 인간 중심주의와 생태 중심주의, 얽혀 있는 환경 문제의 원인과 결과를 차례로 살핍니다. 마지막에는 사회 주체별 공동선언서를 씁니다.</p><p>AI는 역할을 제한해 만든 Gemini Gem으로만 활용합니다. 검색 키워드만 알려 주는 AI, 반론만 하는 &#x27;세이렌&#x27;, 질문만 던지는 퍼실리테이터가 따로 있습니다. 첫 차시와 마지막 차시에 같은 진단을 실시해 학생이 AI 활용 방식의 변화를 직접 비교합니다. 심사위원들은 학생이 먼저 생각하고 필요한 곳에 AI를 활용한 뒤 최종 판단을 내리는 흐름이 가장 뚜렷한 수업으로 이 사례를 꼽았습니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/qi0MpdAYist07dbSBd9N" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">최우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/VlhWIXWFGhe7SHUPjfWu" target="_blank" rel="noopener">문학 탐정단, AI의 반박을 검증하다</a></h3><p class="who">프롤로그 · 서울대·동국대 · 고1 공통국어2 · 5차시</p><p>학생들은 &#x27;문학 탐정&#x27;이 되어 소설 「노찬성과 에반」의 장면과 단어를 두고 해석 질문을 만들고, AI 없이 자기 답부터 씁니다. 그 해석을 ChatGPT에 보여 주고 반박을 받습니다.</p><p>AI 화면을 닫은 뒤에는 검증표를 활용해 반박 내용을 사실과 의견으로 나눕니다. 사실은 원문 쪽수와 어절로 확인하고, 의견은 근거를 따져 받아들이거나 고치거나 버립니다. 그런 다음 처음 해석을 고치거나 근거를 들어 유지합니다. 학생이 AI의 답을 비판하는 대신 AI가 학생의 답을 반박하도록 했습니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/VlhWIXWFGhe7SHUPjfWu" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">최우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/ZDZ3uNC5aTqcqi2sEERy" target="_blank" rel="noopener">내 손의 움직임이 그래프가 될 때</a></h3><p class="who">매스컴 · 제주대 · 중1 수학·정보 · 4차시</p><p>MediaPipe로 손의 위치를 실시간 좌표로 보고, micro:bit 초음파 센서로 자기 움직임을 시간-거리 그래프로 나타낸 다음 미리 그려 둔 예상 그래프와 비교합니다.</p><p>뒤의 두 차시에는 실생활 공공데이터 그래프를 먼저 스스로 읽고, &#x27;두 번째 해석자&#x27;인 생성형 AI의 해석을 실제 수치와 대조합니다. 수학과 정보의 성취기준을 한 주제로 엮었고, 학교에서 실제로 구할 수 있는 도구를 골랐다는 평을 받았습니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/ZDZ3uNC5aTqcqi2sEERy" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/djY6W04dvYHl9r2I4qNu" target="_blank" rel="noopener">AI가 쉽게 고친 뉴스, 정말 맞을까</a></h3><p class="who">동물원김밥 · 성균관대 · 중1 국어 · 4차시</p><p>뉴스 기사를 여러 독자에게 맞게 쉽게 바꿔 쓰는 수업입니다. AI를 켜기 전에 꼭 남겨야 할 정보를 체크리스트로 만들어 두고, AI가 바꾼 문장마다 받아들일지, 고칠지, 버릴지와 그 이유를 적으며 직접 고쳐 씁니다.</p><p>고친 글은 실제 독자에게 읽어 보게 한 뒤 반응을 반영합니다. 마지막 차시에는 AI에게 질문과 힌트만 받아 혼자 고쳐 씁니다. 교실에서 써 볼 수 있는 간결한 구성이라는 평가를 받았습니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/djY6W04dvYHl9r2I4qNu" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/gO43OEIZxuYeI03kIeU5" target="_blank" rel="noopener">AI야, 내가 가르쳐 줄게</a></h3><p class="who">AIWA · 한국외대 · 고2 화법과 언어 · 4차시</p><p>School AI에게 &#x27;배우는 학생&#x27; 역할을 주고, 학생이 AI에게 어간과 어미, 어근과 접사, 합성어와 파생어를 설명합니다. AI가 일부러 틀리게 분석한 단어는 문법 근거를 대며 바로잡습니다.</p><p>마지막 차시에는 AI 없이 새 단어를 분석하고, 자기 분석을 AI의 분석과 견줘 봅니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/gO43OEIZxuYeI03kIeU5" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/CvpeI4MIxcKKTpgKxt7t" target="_blank" rel="noopener">땅은 물을 어떻게 걸러 줄까</a></h3><p class="who">A! Chem do ET · 이화여대 · 고1 과학탐구실험1 · 6차시</p><p>가설과 실험 설계, 원인 후보를 먼저 써야 &#x27;탐구 코치 AI&#x27;가 열리도록 했습니다. AI가 내놓은 제안은 학급이 함께 정한 &#x27;좋은 탐구의 기준&#x27;에 비춰 받아들이거나 고치거나 버립니다.</p><p>5차시에는 이런 장치 없이 일반 AI를 활용해 혼자 탐구를 설계하고, 수정하지 않은 대화 기록을 보며 누가 판단했는지 돌아봅니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/CvpeI4MIxcKKTpgKxt7t" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/h3mr74KmMjOszc9XQQht" target="_blank" rel="noopener">&#x27;빼다&#x27;와 &#x27;마이너스&#x27; 사이</a></h3><p class="who">지숭이와 아이들 · 제주대 · 중1 수학 · 4차시</p><p>&#x27;작다&#x27;, &#x27;빼다&#x27;처럼 일상에서 쓰는 뜻과 수학에서 쓰는 뜻이 다른 말 때문에 음수 개념에서 격차가 생긴다고 봤습니다.</p><p>팀이 직접 만든 AI 프로그램 &#x27;징검다리&#x27;가 질문과 힌트를 주면 학생이 어휘 그래픽 조직자를 채웁니다. 어휘와 연산을 따로 진단해서 어휘가 부족한 학생에게는 보충 자료를 줍니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/h3mr74KmMjOszc9XQQht" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+<article class="case"><p class="tag">우수상</p><h3><a href="https://aiedu.iline.or.kr/gallery/zxAbbV2ncl9KE2PmB1Hy" target="_blank" rel="noopener">같은 목표, 다른 도움, 다시 혼자</a></h3><p class="who">호반우 · 경북대 · 고1 정보 · 5차시</p><p>첫 차시에 AI 없이 진단해 학생마다 되풀이되는 오개념을 찾고, 그에 맞춰 AI에게 도움받는 경로를 다르게 안내합니다. 교사가 만든 요청문으로 Gemini가 도와주는 정도를 조절하고, 차시가 지날수록 도움을 줄여 갑니다.</p><p>매 차시 끝에는 AI 없이 혼자 문제를 풀고, 짝 프로그래밍과 학교 문제를 다루는 작은 프로젝트를 거쳐 마지막에 다시 혼자 평가를 봅니다.</p><p class="go"><a href="https://aiedu.iline.or.kr/gallery/zxAbbV2ncl9KE2PmB1Hy" target="_blank" rel="noopener">수업지도안 원문 보기</a></p></article>
+
+    </div>
+<h3 class="track">AI 과의존 문제 해결</h3><div class="more"><article><p class="meta">낭청사 · 순천대 · 고2 화학</p><h4><a href="https://aiedu.iline.or.kr/gallery/32GEvpVMDLVCQdcMCsMk" target="_blank" rel="noopener">AI의 분자 구조, 직접 따져 보기</a></h4><p>AI가 내놓은 H₂O, NH₃, CO₂의 구조를 루이스 전자점식과 VSEPR로 확인하고, 처음 판단과 나중 판단을 함께 적습니다.</p></article><article><p class="meta">말ai음 · 부산대 · 고1 국어</p><h4><a href="https://aiedu.iline.or.kr/gallery/93vdD9atCkujB1EpG7kJ" target="_blank" rel="noopener">「님의 침묵」, 내 해석과 AI의 해석</a></h4><p>내 해석과 AI의 해석을 견주고, 작품 속 근거와 작가의 삶, 시대 배경으로 AI의 해석을 따져 봅니다.</p></article><article><p class="meta">아이듀 · 상명대 · 중3 사회</p><h4><a href="https://aiedu.iline.or.kr/gallery/8mJzHFJVC11M4axoWPkC" target="_blank" rel="noopener">&#x27;AI 재무관&#x27;의 예산안 다시 짜기</a></h4><p>정부 부서를 맡은 학생들이 조사한 내용을 근거로 AI가 짠 예산안을 다시 짜고, AI의 결과를 어디까지 반영했는지 이유와 함께 적습니다.</p></article><article><p class="meta">라이브에듀 · 계명대 · 중2 사회</p><h4><a href="https://aiedu.iline.or.kr/gallery/TbqatCQrBgjs4u5nIEnE" target="_blank" rel="noopener">AI가 짠 여행 경로, 지도로 확인하기</a></h4><p>제주 학생들이 AI로 다른 지역 관광 경로를 짜 보고, 지도 앱과 교과서로 틀린 곳을 바로잡은 뒤 학급 AI 활용 약속을 정합니다.</p></article></div>
+<h3 class="track">제한된 환경에서의 AI 문제해결</h3><div class="more"><article><p class="meta">G.O.U(지오유) · 성균관대 · 고1 정보</p><h4><a href="https://aiedu.iline.or.kr/gallery/86PfbsSFHzmOVnDEQwe2" target="_blank" rel="noopener">기기가 둘에 하나뿐인 교실</a></h4><p>기기 없는 &#x27;설계자&#x27;는 구조도를 그리고, 기기를 쥔 &#x27;검증자&#x27;는 실행 결과로 채점하며 역할을 바꿉니다. AI가 쓴 코드도 같은 방식으로 판정합니다.</p></article><article><p class="meta">너 T야? · 성균관대 · 중2 정보·수학</p><h4><a href="https://aiedu.iline.or.kr/gallery/4TGHTcFXOz9WnaS61blL" target="_blank" rel="noopener">인터넷 없이 배우는 AI의 원리</a></h4><p>인쇄 활동지와 칠판만으로 급식 데이터의 상대도수를 계산해 예측 규칙을 만들고, 규칙을 늘려 가며 과적합을 확인합니다.</p></article></div>
+<h3 class="track">학생 간 AI·학습 격차 해소</h3><div class="more"><article><p class="meta">라따뚱이 · 제주대 · 고등학교 특수학급</p><h4><a href="https://aiedu.iline.or.kr/gallery/pepatjCkzPlcZ7tNBTqc" target="_blank" rel="noopener">말, 글, 그림 카드로 AI에게 말 걸기</a></h4><p>자기에게 맞는 방법으로 AI 그림 도구에 요청하고 조건표로 확인합니다. 힌트를 차시마다 줄여 가며 나와 관련된 포스터를 완성합니다.</p></article><article><p class="meta">과교국 · 제주대 · 고2 물리학·생명과학</p><h4><a href="https://aiedu.iline.or.kr/gallery/ynlxpqLCO8dyoVJnEdNx" target="_blank" rel="noopener">자석을 따라 헤엄치는 세균</a></h4><p>수준별로 자성체 시뮬레이션을 탐구하고, 자기주성 세균이 움직이는 원리에 대한 AI의 설명을 탐구 결과와 대조합니다.</p></article><article><p class="meta">EduMates · 제주대 · 중2 수학</p><h4><a href="https://aiedu.iline.or.kr/gallery/LY5c77w8kPFCLsInyRBf" target="_blank" rel="noopener">모르는 것을 질문으로 바꾸기</a></h4><p>AI의 질문에 근거를 들어 답하다가, 점차 막힌 곳을 스스로 질문으로 만들어 봅니다. 마지막 차시에는 AI 없이 새로운 문제를 풉니다.</p></article><article><p class="meta">에듀우웅 · 성균관대 · 고2 인공지능 기초</p><h4><a href="https://aiedu.iline.or.kr/gallery/3eYLwdaDxeHD0f95BpHI" target="_blank" rel="noopener">같은 설명, 모두에게 맞을까?</a></h4><p>시각·청각·인지 정보 장벽을 직접 겪어 보고, 트랙을 골라 친구를 돕는 AI 도우미를 만든 뒤 서로 바꿔 시험하며 다듬습니다.</p></article></div>
+<h3 class="track">교과 연계 AI 융합수업</h3><div class="more"><article><p class="meta">연민 · 전북대 · 고2 지리·정보</p><h4><a href="https://aiedu.iline.or.kr/gallery/Qxi2JSIrur866BcxNTIi" target="_blank" rel="noopener">AI 기후 실험실</a></h4><p>팀이 만든 웹앱에서 해류, 산맥, 바람, 위도를 바꿔 보고, AI가 던지는 질문에 답하며 가설을 지키거나 고칩니다.</p></article><article><p class="meta">파라미터 · 경상대 · 고1 수학·통합과학</p><h4><a href="https://aiedu.iline.or.kr/gallery/1eVjNzekGe1VbIZtbaAy" target="_blank" rel="noopener">AI가 낸 문제, 친구와 바꿔 풀기</a></h4><p>GeoGebra로 판별식과 교점의 관계를 탐구한 뒤, 그 조건으로 AI에게 문제를 만들게 하고 친구와 바꿔 풀며 검토합니다.</p></article></div>
+
+  </div>
+</section>
+
+<footer><span>『AI-EDU Next Class』 전국 예비교원 AI 융합 수업설계 해커톤 · 주최 한국과학창의재단 · 주관 제주대학교</span><span>수업지도안 전체 보기 <a href="https://aiedu.iline.or.kr/gallery" target="_blank" rel="noopener">AI-EDU 오픈라이브러리</a></span></footer>
+</body>
+</html>
