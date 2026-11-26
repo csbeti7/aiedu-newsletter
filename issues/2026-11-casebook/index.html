@@ -388,5 +388,32 @@ footer { max-width: 1000px; margin: 96px auto 0; border-top: 1px solid var(--ink
 </section>
 
 <footer><div><span>『AI-EDU Next Class』 전국 예비교원 AI 융합 수업설계 해커톤 · 주최 한국과학창의재단 · 주관 제주대학교</span><span class="contact">문의: <a href="mailto:ai_edu@jejunu.ac.kr">ai_edu@jejunu.ac.kr</a></span></div><span>수업지도안 전체 보기 <a href="https://aiedu.iline.or.kr/gallery" target="_blank" rel="noopener">AI-EDU 오픈라이브러리</a></span></footer>
+<script>
+/* 링크 동작: 목차(#) 이동은 현재 페이지에서, 외부 링크(신청하기 등)는 새 창에서 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || e.defaultPrevented || e.button !== 0) return;
+    var href = a.getAttribute('href') || '';
+    if (href.charAt(0) === '#') {
+      e.preventDefault();
+      var id = decodeURIComponent(href.slice(1));
+      var el = id ? document.getElementById(id) : document.body;
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (el.tabIndex < 0 && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) el.setAttribute('tabindex', '-1');
+        try { el.focus({ preventScroll: true }); } catch (_) {}
+      }
+      return;
+    }
+    if (/^https?:\/\//i.test(href)) {
+      e.preventDefault();
+      var w = window.open(href, '_blank');
+      if (w) { try { w.opener = null; } catch (_) {} }
+      else { window.location.href = href; }
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>
